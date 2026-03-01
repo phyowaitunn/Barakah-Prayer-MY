@@ -1,6 +1,6 @@
 async function loadSurahList() {
     try {
-        const response = await fetch("https://api.aladhan.com/v1/meta");
+        const response = await fetch("https://api.aladhan.com/v1");
         const data = await response.json();
 
         const surahs = data.data.surahs.references;
@@ -37,3 +37,4 @@ async function loadSurah() {
 
     document.getElementById("quranText").innerHTML = text;
 }
+
