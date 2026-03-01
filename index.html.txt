@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barakah Prayer MY</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🕌 Barakah Prayer MY</h1>
+    <div class="controls">
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="ms">Malay</option>
+            <option value="mm">Burmese</option>
+        </select>
+        <button id="themeToggle">🌙</button>
+    </div>
+</header>
+
+<section class="info">
+    <p id="location"></p>
+    <p id="gregorianDate"></p>
+    <p id="hijriDate"></p>
+</section>
+
+<section class="prayers" id="prayerContainer"></section>
+
+<section class="qibla">
+    <h2>🧭 Qibla</h2>
+    <p id="qiblaDirection"></p>
+</section>
+
+<section class="quran">
+    <h2>📖 Qur’an</h2>
+    <div id="surahList"></div>
+    <div id="quranText"></div>
+</section>
+
+<audio id="azanAudio" src="azan.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>

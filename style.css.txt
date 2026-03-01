@@ -1,0 +1,47 @@
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#e8f5e9;
+    color:#1b5e20;
+    transition:0.3s;
+}
+
+body.dark {
+    background:#121212;
+    color:white;
+}
+
+header {
+    background:#1b5e20;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.controls {
+    margin-top:10px;
+}
+
+.prayers {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
+    gap:10px;
+    padding:15px;
+}
+
+.card {
+    background:white;
+    padding:10px;
+    border-radius:8px;
+    text-align:center;
+}
+
+body.dark .card {
+    background:#1e1e1e;
+}
+
+button, select {
+    padding:5px;
+    border-radius:5px;
+    border:none;
+}
