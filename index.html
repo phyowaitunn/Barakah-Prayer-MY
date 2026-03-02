@@ -1,54 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Barakah Prayer MY</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Connect CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barakah Prayer MY</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>🕌 Barakah Prayer MY</h1>
-        <h3 id="location">Kuala Lumpur, Malaysia</h3>
+<!-- Splash Screen -->
+<div id="splash">
+    <div class="splash-content">
+        <h1>🕌 Barakah Prayer</h1>
+        <p>Loading Prayer Times...</p>
+    </div>
+</div>
 
-        <div class="date-box">
-            <p id="gregorianDate"></p>
-            <p id="hijriDate"></p>
-        </div>
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('calendar')">Calendar</a>
+    <a href="#" onclick="showPage('about')">About</a>
+</div>
+
+<!-- Main App -->
+<div class="main">
+
+    <div class="header">
+        <button onclick="toggleMenu()">☰</button>
+        <h2>Barakah Prayer MY</h2>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active-page">
+        <h3 id="location">Kuala Lumpur</h3>
+        <p id="gregorianDate"></p>
+        <p id="hijriDate"></p>
 
         <div class="prayer-box">
-            <div class="prayer">
-                <span>Fajr</span>
-                <span id="fajr">Loading...</span>
-            </div>
-
-            <div class="prayer">
-                <span>Dhuhr</span>
-                <span id="dhuhr">Loading...</span>
-            </div>
-
-            <div class="prayer">
-                <span>Asr</span>
-                <span id="asr">Loading...</span>
-            </div>
-
-            <div class="prayer">
-                <span>Maghrib</span>
-                <span id="maghrib">Loading...</span>
-            </div>
-
-            <div class="prayer">
-                <span>Isha</span>
-                <span id="isha">Loading...</span>
-            </div>
+            <div class="prayer"><span>Fajr</span><span id="fajr"></span></div>
+            <div class="prayer"><span>Dhuhr</span><span id="dhuhr"></span></div>
+            <div class="prayer"><span>Asr</span><span id="asr"></span></div>
+            <div class="prayer"><span>Maghrib</span><span id="maghrib"></span></div>
+            <div class="prayer"><span>Isha</span><span id="isha"></span></div>
         </div>
     </div>
 
-    <!-- Connect JavaScript -->
-    <script src="script.js"></script>
+    <!-- CALENDAR PAGE -->
+    <div id="calendar" class="page">
+        <h3>Hijri Calendar</h3>
+        <p>Coming Soon...</p>
+    </div>
 
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <h3>About Barakah Prayer</h3>
+        <p>Developed by Phyo Wai Tun</p>
+        <p>Prayer times powered by Aladhan API</p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
