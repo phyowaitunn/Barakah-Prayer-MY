@@ -48,3 +48,36 @@ loadPrayerTimes();
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 }
+
+function startCountdown(timings) {
+    const prayers = [
+        {name:"Fajr", time: timings.Fajr},
+        {name:"Dhuhr", time: timings.Dhuhr},
+        {name:"Asr", time: timings.Asr},
+        {name:"Maghrib", time: timings.Maghrib},
+        {name:"Isha", time: timings.Isha}
+    ];
+
+    function updateCountdown() {
+        const now = new Date();
+        const currentMinutes = now.getHours()*60 + now.getMinutes();
+
+        for (let p of prayers) {
+            let [h,m] = p.time.split(":");
+            let prayerMinutes = parseInt(h)*60 + parseInt(m);
+
+            if (prayerMinutes > currentMinutes) {
+                let diff = prayerMinutes - currentMinutes;
+                let hours = Math.floor(diff/60);
+                let mins = diff%60;
+                document.getElementById("countdown").innerText =
+                    "Next Prayer: " + p.name + " in " + hours + "h " + mins + "m";
+                break;
+            }
+        }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown,60000);
+}
+
