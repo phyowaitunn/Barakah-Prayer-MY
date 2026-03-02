@@ -1,74 +1,79 @@
-body {
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:white;
+body{
+margin:0;
+font-family:Poppins,Arial;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
 }
 
-#splash {
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#0f2027;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:999;
+/* Splash */
+#splash{
+position:fixed;
+width:100%;
+height:100vh;
+background:#0f2027;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
 }
 
-.sidebar {
-    position:fixed;
-    left:-250px;
-    top:0;
-    width:250px;
-    height:100%;
-    background:#111;
-    padding-top:60px;
-    transition:0.3s;
+/* Header */
+header{
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px;
+background:#111;
 }
 
-.sidebar a {
-    display:block;
-    padding:15px;
-    color:white;
-    text-decoration:none;
+header button{
+font-size:22px;
+background:none;
+border:none;
+color:white;
 }
 
-.sidebar a:hover {
-    background:#00c6ff;
+/* Sidebar */
+#sidebar{
+position:fixed;
+left:-250px;
+top:0;
+width:250px;
+height:100%;
+background:#111;
+padding-top:60px;
+transition:.3s;
 }
 
-.main {
-    padding:20px;
+#sidebar a{
+display:block;
+padding:15px;
+cursor:pointer;
 }
 
-.header {
-    display:flex;
-    align-items:center;
-    gap:15px;
+#sidebar a:hover{
+background:#00c6ff;
 }
 
-.header button {
-    font-size:22px;
-    background:none;
-    border:none;
-    color:white;
+/* Pages */
+.app{padding:20px}
+
+.page{display:none}
+.page.active{display:block}
+
+/* Cards */
+.card{
+display:flex;
+justify-content:space-between;
+padding:14px;
+margin:10px 0;
+background:rgba(255,255,255,.1);
+border-radius:12px;
+font-size:18px;
 }
 
-.page {
-    display:none;
-}
-
-.active-page {
-    display:block;
-}
-
-.prayer {
-    display:flex;
-    justify-content:space-between;
-    padding:12px;
-    margin:8px 0;
-    background:rgba(255,255,255,0.1);
-    border-radius:8px;
+/* Highlight */
+.activePrayer{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
 }
