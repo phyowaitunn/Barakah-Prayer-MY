@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0f2027">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Barakah Prayer MY</title>
+
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f2027">
+
 </head>
 <body>
 
 <!-- Splash Screen -->
 <div id="splash">
-    <div class="splash-content">
-        <h1>🕌 Barakah Prayer</h1>
-        <p>Loading Prayer Times...</p>
-    </div>
+    <h1>🕌 Barakah Prayer</h1>
+    <p>Loading...</p>
 </div>
 
 <!-- Sidebar -->
 <div id="sidebar" class="sidebar">
     <a href="#" onclick="showPage('home')">Home</a>
-    <a href="#" onclick="showPage('calendar')">Calendar</a>
     <a href="#" onclick="showPage('about')">About</a>
 </div>
 
-<!-- Main App -->
 <div class="main">
 
     <div class="header">
@@ -33,31 +31,22 @@
         <h2>Barakah Prayer MY</h2>
     </div>
 
-    <!-- HOME PAGE -->
+    <!-- HOME -->
     <div id="home" class="page active-page">
-        <h3 id="location">Kuala Lumpur</h3>
         <p id="gregorianDate"></p>
         <p id="hijriDate"></p>
         <h3 id="countdown"></h3>
 
-        <div class="prayer-box">
-            <div class="prayer"><span>Fajr</span><span id="fajr"></span></div>
-            <div class="prayer"><span>Dhuhr</span><span id="dhuhr"></span></div>
-            <div class="prayer"><span>Asr</span><span id="asr"></span></div>
-            <div class="prayer"><span>Maghrib</span><span id="maghrib"></span></div>
-            <div class="prayer"><span>Isha</span><span id="isha"></span></div>
-        </div>
+        <div class="prayer"><span>Fajr</span><span id="fajr"></span></div>
+        <div class="prayer"><span>Dhuhr</span><span id="dhuhr"></span></div>
+        <div class="prayer"><span>Asr</span><span id="asr"></span></div>
+        <div class="prayer"><span>Maghrib</span><span id="maghrib"></span></div>
+        <div class="prayer"><span>Isha</span><span id="isha"></span></div>
     </div>
 
-    <!-- CALENDAR PAGE -->
-    <div id="calendar" class="page">
-        <h3>Hijri Calendar</h3>
-        <p>Coming Soon...</p>
-    </div>
-
-    <!-- ABOUT PAGE -->
+    <!-- ABOUT -->
     <div id="about" class="page">
-        <h3>About Barakah Prayer</h3>
+        <h3>About</h3>
         <p>Developed by Phyo Wai Tun</p>
         <p>Prayer times powered by Aladhan API</p>
     </div>
@@ -67,5 +56,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
