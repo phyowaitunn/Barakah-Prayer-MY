@@ -23,7 +23,7 @@ function showPage(pageId) {
 }
 
 // Load Prayer Times
-async function loadPrayerTimes() {
+async function loadPrayerTimes(startCountdown(timings);) {
     const response = await fetch(
         "https://api.aladhan.com/v1/timingsByCity?city=Kuala Lumpur&country=Malaysia&method=3"
     );
@@ -80,4 +80,5 @@ function startCountdown(timings) {
     updateCountdown();
     setInterval(updateCountdown,60000);
 }
+
 
