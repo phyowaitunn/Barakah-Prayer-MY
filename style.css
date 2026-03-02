@@ -1,96 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color: white;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
 }
 
-/* Splash */
 #splash {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #0f2027;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    flex-direction: column;
-    animation: fadeOut 2s ease 2s forwards;
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#0f2027;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
 }
 
-@keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
-}
-
-/* Sidebar */
 .sidebar {
-    position: fixed;
-    left: -250px;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background: #111;
-    padding-top: 60px;
-    transition: 0.3s;
+    position:fixed;
+    left:-250px;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#111;
+    padding-top:60px;
+    transition:0.3s;
 }
 
 .sidebar a {
-    display: block;
-    padding: 15px;
-    color: white;
-    text-decoration: none;
+    display:block;
+    padding:15px;
+    color:white;
+    text-decoration:none;
 }
 
 .sidebar a:hover {
-    background: #00c6ff;
+    background:#00c6ff;
 }
 
-/* Main */
 .main {
-    padding: 20px;
+    padding:20px;
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
 .header button {
-    font-size: 22px;
-    background: none;
-    border: none;
-    color: white;
+    font-size:22px;
+    background:none;
+    border:none;
+    color:white;
 }
 
-/* Pages */
 .page {
-    display: none;
+    display:none;
 }
 
 .active-page {
-    display: block;
-}
-
-/* Prayer Box */
-.prayer-box {
-    margin-top: 20px;
+    display:block;
 }
 
 .prayer {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.1);
+    display:flex;
+    justify-content:space-between;
+    padding:12px;
+    margin:8px 0;
+    background:rgba(255,255,255,0.1);
+    border-radius:8px;
 }
