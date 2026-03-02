@@ -1,47 +1,91 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#e8f5e9;
-    color:#1b5e20;
-    transition:0.3s;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
-body.dark {
-    background:#121212;
-    color:white;
+/* Main Container */
+.container {
+    width: 95%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
 }
 
-header {
-    background:#1b5e20;
-    color:white;
-    padding:15px;
-    text-align:center;
+/* Title */
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
 
-.controls {
-    margin-top:10px;
+#location {
+    font-weight: 300;
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 20px;
 }
 
-.prayers {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
-    gap:10px;
-    padding:15px;
+/* Date Section */
+.date-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 
-.card {
-    background:white;
-    padding:10px;
-    border-radius:8px;
-    text-align:center;
+/* Prayer Box */
+.prayer-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-body.dark .card {
-    background:#1e1e1e;
+/* Each Prayer Row */
+.prayer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    transition: 0.3s ease;
+    font-weight: 500;
 }
 
-button, select {
-    padding:5px;
-    border-radius:5px;
-    border:none;
+.prayer:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Highlight Current Prayer */
+.active {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 20px;
+    }
 }
