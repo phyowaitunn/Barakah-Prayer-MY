@@ -1,85 +1,88 @@
-// Splash Auto Hide
-setTimeout(() => {
-    document.getElementById("splash").style.display = "none";
-}, 3000);
+// Splash
+setTimeout(()=>{
+    document.getElementById("splash").style.display="none";
+},2000);
 
-// Sidebar Toggle
-function toggleMenu() {
-    const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.left === "0px") {
-        sidebar.style.left = "-250px";
-    } else {
-        sidebar.style.left = "0px";
-    }
+// Sidebar
+function toggleMenu(){
+    const sidebar=document.getElementById("sidebar");
+    sidebar.style.left = sidebar.style.left==="0px" ? "-250px":"0px";
 }
 
 // Page Switch
-function showPage(pageId) {
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active-page");
-    });
-    document.getElementById(pageId).classList.add("active-page");
+function showPage(id){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active-page"));
+    document.getElementById(id).classList.add("active-page");
     toggleMenu();
 }
 
 // Load Prayer Times
-async function loadPrayerTimes() {
-    const response = await fetch(
-        "https://api.aladhan.com/v1/timingsByCity?city=Kuala Lumpur&country=Malaysia&method=3"
-    );
+async function loadPrayerTimes(){
+    const res = await fetch("https://api.aladhan.com/v1/timingsByCity?city=Kuala Lumpur&country=Malaysia&method=3");
+    const data = await res.json();
+    const t = data.data.timings;
 
-    const data = await response.json();
-    const timings = data.data.timings;
+    document.getElementById("fajr").innerText=t.Fajr;
+    document.getElementById("dhuhr").innerText=t.Dhuhr;
+    document.getElementById("asr").innerText=t.Asr;
+    document.getElementById("maghrib").innerText=t.Maghrib;
+    document.getElementById("isha").innerText=t.Isha;
 
-    document.getElementById("fajr").innerText = timings.Fajr;
-    document.getElementById("dhuhr").innerText = timings.Dhuhr;
-    document.getElementById("asr").innerText = timings.Asr;
-    document.getElementById("maghrib").innerText = timings.Maghrib;
-    document.getElementById("isha").innerText = timings.Isha;
+    document.getElementById("gregorianDate").innerText=data.data.date.gregorian.date;
+    document.getElementById("hijriDate").innerText=data.data.date.hijri.date+" AH";
 
-    document.getElementById("gregorianDate").innerText =
-        data.data.date.gregorian.date;
-
-    document.getElementById("hijriDate").innerText =
-        data.data.date.hijri.date + " AH";
+    startCountdown(t);
+    checkAzan(t);
 }
 
-loadPrayerTimes();
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
+// Countdown
+function startCountdown(timings){
+    function update(){
+        const now=new Date();
+        const current=now.getHours()*60+now.getMinutes();
 
-function startCountdown(timings) {
-    const prayers = [
-        {name:"Fajr", time: timings.Fajr},
-        {name:"Dhuhr", time: timings.Dhuhr},
-        {name:"Asr", time: timings.Asr},
-        {name:"Maghrib", time: timings.Maghrib},
-        {name:"Isha", time: timings.Isha}
-    ];
+        const prayers=[
+            {name:"Fajr",time:timings.Fajr},
+            {name:"Dhuhr",time:timings.Dhuhr},
+            {name:"Asr",time:timings.Asr},
+            {name:"Maghrib",time:timings.Maghrib},
+            {name:"Isha",time:timings.Isha}
+        ];
 
-    function updateCountdown() {
-        const now = new Date();
-        const currentMinutes = now.getHours()*60 + now.getMinutes();
-
-        for (let p of prayers) {
-            let [h,m] = p.time.split(":");
-            let prayerMinutes = parseInt(h)*60 + parseInt(m);
-
-            if (prayerMinutes > currentMinutes) {
-                let diff = prayerMinutes - currentMinutes;
-                let hours = Math.floor(diff/60);
-                let mins = diff%60;
-                document.getElementById("countdown").innerText =
-                    "Next Prayer: " + p.name + " in " + hours + "h " + mins + "m";
+        for(let p of prayers){
+            let [h,m]=p.time.split(":");
+            let minutes=parseInt(h)*60+parseInt(m);
+            if(minutes>current){
+                let diff=minutes-current;
+                let h2=Math.floor(diff/60);
+                let m2=diff%60;
+                document.getElementById("countdown").innerText=
+                    "Next: "+p.name+" in "+h2+"h "+m2+"m";
                 break;
             }
         }
     }
-
-    updateCountdown();
-    setInterval(updateCountdown,60000);
+    update();
+    setInterval(update,60000);
 }
 
+// Azan
+function checkAzan(timings){
+    setInterval(()=>{
+        const now=new Date();
+        const current=now.getHours()+":"+String(now.getMinutes()).padStart(2,"0");
 
+        Object.values(timings).forEach(time=>{
+            if(current===time){
+                new Audio("azan.mp3").play();
+            }
+        });
+    },60000);
+}
 
+// Service Worker
+if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("service-worker.js");
+}
+
+loadPrayerTimes();
