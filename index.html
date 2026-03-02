@@ -1,48 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barakah Prayer MY</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Barakah Prayer MY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>🕌 Barakah Prayer MY</h1>
-    <div class="controls">
-        <select id="languageSelect">
-            <option value="en">English</option>
-            <option value="ms">Malay</option>
-            <option value="mm">Burmese</option>
-        </select>
-        <button id="themeToggle">🌙</button>
+    <div class="container">
+        <h1>🕌 Barakah Prayer MY</h1>
+        <h3 id="location">Kuala Lumpur, Malaysia</h3>
+
+        <div class="date-box">
+            <p id="gregorianDate"></p>
+            <p id="hijriDate"></p>
+        </div>
+
+        <div class="prayer-box">
+            <div class="prayer">
+                <span>Fajr</span>
+                <span id="fajr">Loading...</span>
+            </div>
+
+            <div class="prayer">
+                <span>Dhuhr</span>
+                <span id="dhuhr">Loading...</span>
+            </div>
+
+            <div class="prayer">
+                <span>Asr</span>
+                <span id="asr">Loading...</span>
+            </div>
+
+            <div class="prayer">
+                <span>Maghrib</span>
+                <span id="maghrib">Loading...</span>
+            </div>
+
+            <div class="prayer">
+                <span>Isha</span>
+                <span id="isha">Loading...</span>
+            </div>
+        </div>
     </div>
-</header>
 
-<section class="info">
-    <p id="location"></p>
-    <p id="gregorianDate"></p>
-    <p id="hijriDate"></p>
-</section>
+    <!-- Connect JavaScript -->
+    <script src="script.js"></script>
 
-<section class="prayers" id="prayerContainer"></section>
-
-<section class="qibla">
-    <h2>🧭 Qibla</h2>
-    <p id="qiblaDirection"></p>
-</section>
-
-<section class="quran">
-    <h2>📖 Qur’an</h2>
-    <div id="surahList"></div>
-    <div id="quranText"></div>
-</section>
-
-
-
-<script src="script.js"></script>
 </body>
-
 </html>
-
