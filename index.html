@@ -13,16 +13,15 @@
 
 <body>
 
-<!-- SPLASH -->
 <div id="splash">
-    <h1>🕌 Barakah Prayer</h1>
-    <p>Loading Prayer Times...</p>
+<h1>🕌 Barakah Prayer</h1>
 </div>
 
-<!-- SIDEBAR -->
+<!-- Sidebar -->
 <div id="sidebar">
-    <a onclick="showPage('home')">🏠 Home</a>
-    <a onclick="showPage('about')">ℹ About</a>
+<a onclick="showPage('home')">🏠 Home</a>
+<a onclick="showPage('qibla')">🧭 Qibla</a>
+<a onclick="showPage('about')">ℹ About</a>
 </div>
 
 <div class="app">
@@ -30,6 +29,15 @@
 <header>
 <button onclick="toggleMenu()">☰</button>
 <h2>Barakah Prayer MY</h2>
+
+<select id="stateSelect">
+<option value="Kuala Lumpur">Kuala Lumpur</option>
+<option value="Penang">Penang</option>
+<option value="Johor Bahru">Johor</option>
+<option value="Selangor">Selangor</option>
+</select>
+
+<button onclick="toggleTheme()">🌙</button>
 </header>
 
 <!-- HOME -->
@@ -38,20 +46,39 @@
 <p id="gregorianDate"></p>
 <p id="hijriDate"></p>
 
-<h3 id="countdown">Loading...</h3>
+<h3 id="countdown"></h3>
 
-<div class="card"><span>Fajr</span><b id="fajr"></b></div>
-<div class="card"><span>Dhuhr</span><b id="dhuhr"></b></div>
-<div class="card"><span>Asr</span><b id="asr"></b></div>
-<div class="card"><span>Maghrib</span><b id="maghrib"></b></div>
-<div class="card"><span>Isha</span><b id="isha"></b></div>
+<div class="card" id="FajrCard">
+<span>Fajr</span><b id="fajr"></b>
+</div>
 
+<div class="card" id="DhuhrCard">
+<span>Dhuhr</span><b id="dhuhr"></b>
+</div>
+
+<div class="card" id="AsrCard">
+<span>Asr</span><b id="asr"></b>
+</div>
+
+<div class="card" id="MaghribCard">
+<span>Maghrib</span><b id="maghrib"></b>
+</div>
+
+<div class="card" id="IshaCard">
+<span>Isha</span><b id="isha"></b>
+</div>
+
+</section>
+
+<!-- QIBLA -->
+<section id="qibla" class="page">
+<h3>Qibla Direction</h3>
+<div id="compass">🧭</div>
+<p id="qiblaAngle"></p>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="page">
-<h3>About App</h3>
-<p>Barakah Prayer MY</p>
 <p>Developed by Phyo Wai Tun</p>
 </section>
 
@@ -60,3 +87,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
